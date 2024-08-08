@@ -1,9 +1,11 @@
 {
-    "/api": {
-      "target": "http://sahosoftweb.com",
-      "secure": false,
-      "changeOrigin": true,
-      "logLevel": "debug"
+  "/api": {
+    "target": "http://sahosoftweb.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
     }
   }
-  
+}
