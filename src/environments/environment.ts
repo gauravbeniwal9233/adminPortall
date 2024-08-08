@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  BASE_API_PATH : "http://sahosoftweb.com/api/",
-  BASE_IMAGES_PATH : "http://sahosoftweb.com/images/",
-  BASE_USERS_IMAGES_PATH : "http://sahosoftweb.com/users/"
+  BASE_API_PATH : "//sahosoftweb.com/api/",
+  BASE_IMAGES_PATH : "//sahosoftweb.com/images/",
+  BASE_USERS_IMAGES_PATH : "//sahosoftweb.com/users/"
 };
 
 /*
