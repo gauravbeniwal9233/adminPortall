@@ -1,0 +1,9 @@
+{
+    "/api": {
+      "target": "http://sahosoftweb.com",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }
+  
