@@ -1,0 +1,182 @@
+<button class="btn btn-success" >Save</button>
+<i class="fa fa-handshake-o" aria-hidden="true"></i>
+
+<!-- 
+<button class="btn btn-success" >Save</button>
+
+<button><i class="fa fa-address-book" aria-hidden="true"></i></button>
+
+<i class="fa fa-handshake-o" aria-hidden="true"></i> -->
+ 
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li ngbNavItem>
+      <a ngbNavLink>First</a>
+      <ng-template ngbNavContent>First content</ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink>Second</a>
+      <ng-template ngbNavContent>Second content</ng-template>
+    </li>
+    <li ngbNavItem>
+        <a ngbNavLink>Third</a>
+        <ng-template ngbNavContent>Third content</ng-template>
+      </li>
+  </ul>
+  <div [ngbNavOutlet]="nav"></div> 
+
+  <!-- <i data-feather="circle"></i>
+  <i data-feather="align-center"></i> -->
+
+  <app-feather-icon icon="circle" ></app-feather-icon>
+  <p>Ajeet</p>
+  <app-feather-icon icon="align-center"></app-feather-icon>
+
+  <button>  <app-feather-icon icon="align-center"></app-feather-icon></button>
+
+  <button></button>
+
+
+
+
+  ====================
+
+
+
+  import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+// import * as feather from 'feather-icons';
+import Swal from 'sweetalert2';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'backend';
+  constructor(private _toastr: ToastrService) {
+
+  }
+
+  ngOnInit() {
+    // feather.replace();
+
+     this._toastr.success("Data Saved !!", "User Master");
+    // this._toastr.error("Error Occured !!", "User Master");
+    // this._toastr.warning("Please update email id first !!", "User Master");
+    // this._toastr.info("Good job !!", "User Master");
+
+    // var res = "Hello Ajeet";
+    // this._toastr.success(res, "User Master");
+
+    //confirm("Are you sure want ot delete ?");
+
+
+    //Swal.fire('Any fool can use a computer')
+    // Swal.fire(
+    //   'The Internet?',
+    //   'That thing is still around?',
+    //   'question'
+    // )
+
+
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelled',
+          'Your imaginary file is safe :)',
+          'error'
+        )
+      }
+    })
+
+  }
+}
+
+
+
+
+=====================
+
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { FeatherIconComponent } from './feather-icon/feather-icon.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    FeatherIconComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NgbModule,
+    ToastrModule.forRoot()
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
+
+===============
+
+<i [attr.data-feather]="feathericon"></i>
+
+import { Component, Input, OnInit } from '@angular/core';
+import * as feather from 'feather-icons';
+
+@Component({
+  selector: 'app-feather-icon',
+  templateUrl: './feather-icon.component.html',
+  styleUrls: ['./feather-icon.component.scss']
+})
+export class FeatherIconComponent implements OnInit {
+
+  @Input('icon') feathericon: any;
+
+  constructor() { }
+
+  ngOnInit(): void {
+   
+  }
+
+  ngAfterViewInit(){
+    feather.replace();
+  }
+
+}
