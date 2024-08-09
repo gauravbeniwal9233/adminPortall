@@ -30,6 +30,7 @@
     "ng2-smart-table": "^1.7.2",
     "ngx-ckeditor": "^12.0.0",
     "ngx-toastr": "^15.0.0",
+    "node-fetch": "^3.3.2",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.4.32",
     "tslib": "^2.3.0",
