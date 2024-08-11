@@ -243,6 +243,11 @@ export class CategoryComponent implements OnInit, OnDestroy {
     });
   }
 
+  getImagePath(imagePath: string): string {
+    // Constructing the full path to the image based on environment and folder structure
+    return `${environment.BASE_IMAGES_PATH}/Shop/${imagePath}`;
+  }
+
   Edit(id: number) {
     this.buttonText = "Update";
     this.dbops = DbOperation.update;

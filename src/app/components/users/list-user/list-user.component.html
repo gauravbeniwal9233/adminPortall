@@ -19,10 +19,18 @@
                         </ngx-datatable-column>
                         <ngx-datatable-column name="Actions">
                             <ng-template ngx-datatable-cell-template let-row="row">
-                                <button type="button" style="color: green;" class="fa fa-edit mt-2"
-                                    (click)="Edit(row.id)"></button>
-                                <button type="button" style="color: red;" class="fa fa-trash-o"
-                                    (click)="Delete(row.id)"></button>
+                                <!-- Edit Button -->
+                                <button type="button"
+                                    style="color: green; border: none; background: none; cursor: pointer;"
+                                    (click)="Edit(row.id)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <!-- Delete Button -->
+                                <button type="button"
+                                    style="color: red; border: none; background: none; cursor: pointer;"
+                                    (click)="Delete(row.id)">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
                             </ng-template>
                         </ngx-datatable-column>
                     </ngx-datatable>

@@ -191,6 +191,8 @@ export class BrandlogoComponent implements OnInit, OnDestroy {
   }
 
   getData() {
+    const url = environment.BASE_API_PATH + 'BrandLogo/GetAll';
+    console.log('Requesting:', url);
     this._httpService
       .get(environment.BASE_API_PATH + 'BrandLogo/GetAll')
       .subscribe((res) => {
